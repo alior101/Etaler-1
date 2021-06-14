@@ -12,6 +12,10 @@ project(tmexample CXX)
 add_executable(tmexample tmexample.cpp)
 target_link_libraries(tmexample Etaler)
 
+project(tm_gc CXX)
+add_executable(tm_gc tm_gc.cpp)
+target_link_libraries(tm_gc Etaler)
+
 project(tmbench CXX)
 add_executable(tmbench tmbench.cpp)
 target_link_libraries(tmbench Etaler)
