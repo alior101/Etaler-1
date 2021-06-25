@@ -39,6 +39,7 @@ int main()
 
 	et::encoder::GC gc1;
 
+	// test for checking the GC bump move
 	et::encoder::GridCellInit(&gc1,16);
 	et::encoder::GridCellPrint(&gc1);
 	for (int j=0;j<10;j++)
