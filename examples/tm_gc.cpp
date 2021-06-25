@@ -39,8 +39,13 @@ int main()
 
 	et::encoder::GC gc1;
 
-	et::encoder::GridCellInit(&gc1,16,16);
+	et::encoder::GridCellInit(&gc1,16);
 	et::encoder::GridCellPrint(&gc1);
+	for (int j=0;j<10;j++)
+	{
+		et::encoder::GridCellActivate(&gc1, 10);
+		et::encoder::GridCellPrint(&gc1);
+	}
 	
 	//Intermid HTM states
 	Tensor last_state = zeros({sdr_size, cells_per_column}, DType::Bool);

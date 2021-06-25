@@ -23,8 +23,8 @@ namespace et
                 Tensor t;
                 size_t seed=42;
                 int * syn_conn[MAX_MODULES]; // array of connections per module 
-                int * activity; // bumpo location per module
-                int * wrap_around;
+                int activity[MAX_MODULES]; // bumpo location per module
+                int wrap_around[MAX_MODULES];
                 int module_size;
 
                 
@@ -34,7 +34,7 @@ namespace et
 
         typedef struct GridCellsModule GC;        
         void GridCellActivate(GC * gc, int pulse);
-        void GridCellInit(GC * gc, int module_size, int num_of_mudules);
+        void GridCellInit(GC * gc, int module_size);
         void GridCellAnkor(GC * gc, int * ankor);
         void GridCellPrint(GC* gc);
     

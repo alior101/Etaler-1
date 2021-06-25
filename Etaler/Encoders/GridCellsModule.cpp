@@ -15,12 +15,13 @@ namespace et
     namespace encoder
     {
   
-        void GridCellInit(GC * gc, int module_size, int num_of_mudules)
+        void GridCellInit(GC * gc, int module_size)
         {
             gc->module_size = module_size;
             for (int m=0;m<MAX_MODULES;m++)
             {
                 gc->syn_conn[m] = (int *)malloc(sizeof(int)*module_size); 
+                memset(gc->syn_conn[m],0,module_size*sizeof(int));
                 gc->activity[m] = 0;
                 float f = 1.4; // taken from papers on GC modules ratio
                 gc->wrap_around[m] = (int)(100*pow(f,m)); // simulate a 1.4 ratio between modules 
@@ -49,7 +50,8 @@ namespace et
         }
 
         void GridCellPrint(GC* gc)
-        {
+        {   
+            printf("********************************\n");
             for (int m=0;m<MAX_MODULES;m++)
             {
                 for (int phase = 0; phase < gc->module_size; phase++)
