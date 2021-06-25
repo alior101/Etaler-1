@@ -3,6 +3,7 @@
 //#include <Etaler/Backends/OpenCLBackend.hpp>
 #include <Etaler/Algorithms/TemporalMemory.hpp>
 #include <Etaler/Encoders/Category.hpp>
+#include <Etaler/Encoders/GridCellsModule.hpp>
 using namespace et;
 
 #include <iostream>
@@ -34,6 +35,13 @@ int main()
 	intmax_t sdr_size = bits_per_category*num_category;
 	TemporalMemory tm({(intmax_t)sdr_size}, cells_per_column);
 
+	//Create SDR base on which iteration we are in
+
+	et::encoder::GC gc1;
+
+	et::encoder::GridCellInit(&gc1,16,16);
+	et::encoder::GridCellPrint(&gc1);
+	
 	//Intermid HTM states
 	Tensor last_state = zeros({sdr_size, cells_per_column}, DType::Bool);
 	Tensor last_pred = zeros({sdr_size, cells_per_column}, DType::Bool);

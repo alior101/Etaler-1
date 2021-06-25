@@ -13,7 +13,7 @@ namespace et
 {
 
 namespace encoder
-{
+{ 
 
 //This implementation is slower the one in tiny-htm. But is more accurate
 inline std::vector<uint8_t> gcm1d(float v, float scale, float bias, size_t active_cells, size_t num_cells)
